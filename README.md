@@ -208,6 +208,8 @@ The `next()` function *must* be called with the correct number of arguments, alt
 
 Additionally, you don't have to even call `next()` if your plugin decides that the default behaviour is not desirable. Since plugins have access to the `this` that you provide it (usually the actual parent object being operated on), your plugins can divert calls from one part of your API to another. For example a `put()` call may be diverted to a `batch()` call along with additional entries for your database.
 
+**<code>'wrapReverse'</code> is the same as `'wrap'` but the plugins are applied in reverse order.
+
 ### externr.$register(plugin)
 Once you have an `Externr` object, it will have a `.$register()` method that will allow plugins to be injected into it. The `plugin` argument can be a single plugin object or an array of plugin objects.
 
