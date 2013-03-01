@@ -40,7 +40,7 @@ tape('simple wrap', function (t) {
   externr.$register({ 'sqr': function (x, next) { return next(x) + 1 }})
   t.equal(o.sqr(4), 4 * 4 + 1)
   externr.$register({ 'sqr': function (x, next) { return next(x) / 2 }})
-  t.equal(o.sqr(3), (3 * 3 + 1) / 2)
+  t.equal(o.sqr(3), (3 * 3) / 2 + 1)
   t.end()
 })
 
@@ -58,6 +58,6 @@ tape('simple wrapReverse', function (t) {
   externr.$register({ 'sqr': function (x, next) { return next(x) + 1 }})
   t.equal(o.sqr(4), 4 * 4 + 1)
   externr.$register({ 'sqr': function (x, next) { return next(x) / 2 }})
-  t.equal(o.sqr(3), (3 * 3) / 2 + 1)
+  t.equal(o.sqr(3), (3 * 3 + 1) / 2)
   t.end()
 })

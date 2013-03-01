@@ -22,19 +22,6 @@
     , extendReverseNoop = function (arg) { return arg }
 
     , handleWrap = function (that, args, callback) {
-        var i = this.length
-          , handle = function () {
-              if (i-- === 0)
-                return callback.apply(that, arguments)
-              var args = Array.prototype.slice.call(arguments)
-              args.push(handle.bind(this))
-              return this[i].apply(that, args)
-            }
-
-        return handle.apply(this, args)
-      }
-
-    , handleWrapReverse = function (that, args, callback) {
         var i = 0
           , handle = function () {
               if (i++ === this.length)
@@ -42,6 +29,19 @@
               var args = Array.prototype.slice.call(arguments)
               args.push(handle.bind(this))
               return this[i - 1].apply(that, args)
+            }
+
+        return handle.apply(this, args)
+      }
+
+    , handleWrapReverse = function (that, args, callback) {
+        var i = this.length
+          , handle = function () {
+              if (i-- === 0)
+                return callback.apply(that, arguments)
+              var args = Array.prototype.slice.call(arguments)
+              args.push(handle.bind(this))
+              return this[i].apply(that, args)
             }
 
         return handle.apply(this, args)
