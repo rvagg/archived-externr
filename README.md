@@ -1,8 +1,9 @@
 # Externr [![Build Status](https://secure.travis-ci.org/rvagg/externr.png)](http://travis-ci.org/rvagg/externr)
 
-Provide a plug-in mechanism for your **JavaScript** objects, exposing their inmost secrets.
+**Provide a plug-in mechanism for JavaScript objects, exposing their inmost secrets.**
 
-For Node.js or the browser (ES5+ or ES3 browsers with a shim for `Function#bind()`).
+[![NPM](https://nodei.co/npm/externr.png?stars&downloads&downloadRank)](https://nodei.co/npm/externr/) [![NPM](https://nodei.co/npm-dl/externr.png?months=6&height=3)](https://nodei.co/npm/externr/)
+
 
 ## Example
 
@@ -15,7 +16,7 @@ function SizeSpeaker (name) {
   this.name = name
 }
 
-SizeSpeaker.prototype.getName = function() {
+SizeSpeaker.prototype.getName = function () {
   return this.name
 }
 
@@ -219,4 +220,4 @@ You an expose this directly to your API users (like we have done with a `use()` 
 
 ## Licence
 
-Externr is Copyright (c) 2013 Rod Vagg [@rvagg](https://twitter.com/rvagg) and licensed under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE file for more details.
+Externr is Copyright (c) 2014 Rod Vagg [@rvagg](https://twitter.com/rvagg) and licensed under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE.md file for more details.

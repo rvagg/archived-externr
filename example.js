@@ -1,7 +1,8 @@
 // our core API
 
-var fs = require('fs')
+var fs      = require('fs')
   , Externr = require('./')
+
 
 function SizeSpeaker (name) {
   this.name = name
@@ -12,9 +13,11 @@ function SizeSpeaker (name) {
   this.use = this._externs.$register.bind(this._externs)
 }
 
-SizeSpeaker.prototype.getName = function() {
+
+SizeSpeaker.prototype.getName = function () {
   return this._externs.getName(this.name)
 }
+
 
 SizeSpeaker.prototype.fsize = function (path, callback) {
   fs.stat(path, function (err, stat) {
@@ -46,11 +49,14 @@ var bruce = new SizeSpeaker('Bruce')
       getName: function (name) { return name.bold }
     }
 
+
 require('colors')
+
 
 bruce.use([ personalityPlugin, boldNamePlugin, niceSizePlugin ])
 
-bruce.fsize('/usr/share/dict/british-english', function (err, said) {
+
+bruce.fsize('/usr/share/dict/words', function (err, said) {
   if (err) throw err
   console.log(said)
 })

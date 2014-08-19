@@ -1,6 +1,7 @@
 const tape       = require('tape')
     , Externr    = require('./')
 
+
 tape('simple extend', function (t) {
   var externr = Externr({ extend: [ 'sqr' ] })
     , o = { sqr: function (x) { return externr.sqr(x * x) } }
@@ -12,6 +13,7 @@ tape('simple extend', function (t) {
   t.equal(o.sqr(3), (3 * 3 + 1) / 2)
   t.end()
 })
+
 
 // same as previous but last one demonstrates reverse order
 tape('simple extendReverse', function (t) {
@@ -25,6 +27,7 @@ tape('simple extendReverse', function (t) {
   t.equal(o.sqr(3), (3 * 3) / 2 + 1)
   t.end()
 })
+
 
 tape('simple wrap', function (t) {
   var externr = Externr({ wrap: [ 'sqr' ] })
@@ -43,6 +46,7 @@ tape('simple wrap', function (t) {
   t.equal(o.sqr(3), (3 * 3) / 2 + 1)
   t.end()
 })
+
 
 tape('simple wrapReverse', function (t) {
   var externr = Externr({ wrapReverse: [ 'sqr' ] })
